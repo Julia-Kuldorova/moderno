@@ -93,10 +93,35 @@ body{
        }
    }
 }
-
+.angle-rigth{
+    position: relative;
+    padding-left: 15px;
+    &::before{
+        content: "\f105";
+        font-family: 'icomoon';
+        position: absolute;
+        left: 0;
+        color: $green;
+        font-size: 14px;
+    }
+}
 
 @media(max-width: 720px){
     .container-fluid{
     padding: 0 15px;
     }
 }
+.Rectangle_69 {
+    border-width: 0.833px;
+    border-color: rgb(204, 204, 204);
+    border-style: solid;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 16px 20px 0px rgba(216, 216, 216, 0.75);
+    position: absolute;
+    left: 1298px;
+    top: 91px;
+    width: 158px;
+    height: 317px;
+    z-index: 597;
+  }
+  
