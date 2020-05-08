@@ -42,6 +42,12 @@
 .header__menu{
     background-color: $bg;
 }
+.header__btn-menu,
+.menu__btn{
+        display: none;
+
+}
+
 .menu{
     display: flex;
     align-items: center;
@@ -114,6 +120,7 @@
     }
 }
 .basket{
+    margin-right: 20px;
     span{
         background-color: $green;
     }
@@ -123,7 +130,6 @@
     align-items: center;
 }
 .user{
-    margin-left: 20px;
     margin-right: 25px;
     padding-right: 20px;
     position: relative;
@@ -158,8 +164,9 @@
     
 }
 .user__menu{
-    border: 0px solid rgb(204, 204, 204);
+    border: 0 solid rgb(204, 204, 204);
     position: absolute;
+    z-index: 3;
     top: 69px;
     left: 20px;
     background-color: #fff;
@@ -183,8 +190,9 @@
         }
     }
 }
-.basket__menu{
+.circle__menu{
     position: absolute;
+    z-index: 1;
     top: 62px;
     border-top: 1px solid #e0e0e0;
     right: 0;
@@ -193,7 +201,9 @@
     transition: all .3s;
 }
 .user__box,
-.basket__box{
+.basket__box,
+.notification__box,
+.message__box{
     position: relative;
     height: 90px;
     margin-top: 40px;
@@ -206,46 +216,70 @@
         }
     }
 }
-.basket__box{
+.basket__box,
+.notification__box,
+.message__box{
     margin-top: 54px;
     margin-left: 15px;
     &:hover{
-        .basket__menu{
-            overflow: auto;
+        .circle__menu{
+            overflow: hidden;
             height: auto;
+        }
+        .header__circle::before{
+            color: #263238;
+        }
+        .circle__item{
+            padding: 23px 23px;
+            border-width: 1px;
         }
     }
     
 }
-.basket__item{
+.circle__item{
     background-color: #fff;
-    border: 1px solid #e0e0e0;
+    border: 0 solid #e0e0e0;
     border-top: none;
-    padding: 23px;
+    padding:  0 23px;
     display: flex;
     align-items: center;
     width: 269px;
+    position: relative;
+    transition: all .3s;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    &::before{
+        position: absolute;
+        top: 27px;
+        right: 28px;
+        color: #b0bec5;
+        font-size: 16px;
+    }
 }
-.basket__images{
+.circle__images{
     margin-right: 15px;
 }
-.basket__info{
+.circle__info{
     line-height: 21px;
 }
-.basket__info-name{
+.circle__info-name{
     @include f500;
     color: $bg;
 }
-.basket__info-theme{
+.circle__info-theme{
     font-size: 12px;
     color: $green;
 }
-.basket__info-price{
+.circle__info-price{
     @include f500;
     color: #000;
     font-size: 16px;
 }
-.basket__summ{
+.circle__info-date{
+    font-size: 10px;
+    color: #707070;
+}
+.basket__sum{
     background-color: #fff;
     padding: 16px 17px 12px;
     border: 1px solid #e0e0e0;
@@ -274,6 +308,27 @@
     width: 120px;
     margin-left: 6px;
     background-color: $red;
+}
+.notification__menu,
+.message__menu{
+    .circle__images{
+        margin-right: 20px;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+    }
+    .circle__info{
+        line-height: 18px;
+    }
+    .circle__info-name{
+        font-size: 12px;
+    }
+    .circle__info-theme{
+        font-size: 11px;
+    }
+}
+.icons-color::before{
+    color: $tomato;
 }
 //end header
 
@@ -341,12 +396,12 @@
 }
 //end search 
 
-//start produts
-.produts{
+//start products
+.products{
     padding: 110px 0 ;
     background-color: $grey;
 }
-.produts__inner-btn{
+.products__inner-btn{
     text-align: center;
     margin-bottom: 60px;
     button{
@@ -366,15 +421,14 @@
 }
 .products__inner-box{
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
 
 }
 .product__item{
     max-width: 442px;
     width: 100%;
-    box-shadow: 0px 1px 2px 0px rgba(205, 214, 222, 0.75);
-    margin: 0px 0px 30px;
+    box-shadow: 0 1px 2px 0 rgba(205, 214, 222, 0.75);
+    margin: 0 9px 30px;
     &-img{
         min-height: 250px;
         background-repeat: no-repeat;
@@ -444,7 +498,7 @@
         }
     }
 }
-.produts__bottom-btn{ 
+.products__bottom-btn{
     text-align: center;
     button{
         margin: 45px 5px 0;
@@ -461,7 +515,7 @@
     }
 }
 
-//end produts
+//end products
 
 //start product-slider
 
@@ -1152,3 +1206,9 @@
 
   
 //end product-page
+
+
+
+
+
+@import '_media';

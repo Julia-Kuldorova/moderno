@@ -27,6 +27,7 @@ body{
     line-height: 24px;
     font-weight: 400;
     color: $text;
+    overflow-x: hidden;
 }
 .container{
     margin: 0 auto;
@@ -93,7 +94,7 @@ body{
        }
    }
 }
-.angle-rigth{
+.angle-right{
     position: relative;
     padding-left: 15px;
     &::before{
